@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    Django Resume Parser
-    
+    <header class="header">
+        <div class="container">
+            <div class="logo">ResumeGenius</div>
+            <nav class="nav">
+                <a href="#">Builders</a>
+                <a href="#">Resumes</a>
+                <a href="#">Resources</a>
+            </nav>
+            <div class="faqs">
+                FAQs
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="parser-section">
+            <div class="parser-container">
+                <h1>Free Resume Parser: Test Your Resume For ATS Compatibility</h1>
+                <p>Worried that applicant tracking system (ATS) software won’t be able to accurately scan your resume?
+                    Our online resume parser instantly scans each section of your resume to confirm your resume is
+                    ATS-friendly.</p>
+            </div>
+        </section>
+
+        <section class="upload-section">
+            <p class="loading-text" id="loadingText">Loading...</p>
+            <div class="upload-box">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    
+                    <label for="fileInput" class="upload-label">
+                        <div class="upload-icon">📄</div>
+                        <div class="upload-text">Upload Your Resume</div>
+                    </label>
+                    <input type="file" name="file" id="fileInput" autocomplete="off" required />
+                    <p>DOC, DOCX, or PDF files up to 2MB</p>
+                    <div class="file-name" id="fileName"></div>
+                    <button class="parse-button" type="submit" id="submitButton">Parse Your Resume</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="result-section" id="resultSection">
+            <h2>Parsed Resume Result</h2>
+            <textarea id="result" class="result-textarea" readonly></textarea>
+            <div id="errorMessage" class="error-message"></div>
+        </section>
+    </main>
+
+    <script src="{% static 'index.js'%}"></script>    
 </body>
 </html>
