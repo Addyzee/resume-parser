@@ -5,9 +5,13 @@ const loadingText = document.getElementById('loadingText');
 const resultTextarea = document.getElementById('result');
 const resultSection = document.getElementById('resultSection');
 const errorMessage = document.getElementById('errorMessage');
+const csrftoken = document.querySelector('[name=csrf-token]').content;
+
 
 fileInput.addEventListener('change', () => {
     fileName.textContent = fileInput.files.length > 0 ? fileInput.files[0].name : '';
+    console.log("{% url 'upload-resume' %}");
+
 });
 
 document.getElementById('uploadForm').addEventListener('submit', function(event) {
@@ -19,11 +23,11 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
     loadingText.style.display = 'block';
     resultSection.style.display = 'none';
 
-    fetch("{% url 'upload-resume' %}", {
+    fetch("upload-resume/", {
         method: 'POST',
         body: formData,
         headers: {
-            'X-CSRFToken': '{{ csrf_token }}'
+            'X-CSRFToken': csrftoken
         }
     })
     .then(response => response.json())
