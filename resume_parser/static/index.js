@@ -19,7 +19,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
     loadingText.style.display = 'block';
     resultSection.style.display = 'none';
 
-    fetch("{% url 'upload_resume' %}", {
+    fetch("{% url 'upload-resume' %}", {
         method: 'POST',
         body: formData,
         headers: {
