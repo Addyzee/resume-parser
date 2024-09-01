@@ -18,7 +18,7 @@ def test_validate_file_extension(extension, is_exception_expected):
         with pytest.raises(ValidationError, match="Only PDF and DOC files are accepted."):
             validate_file_extension(file)
     else:
-        assert not validate_file_extension(file) # since validate_file_extension returns None
+        assert validate_file_extension(file) # since validate_file_extension returns None
         
         
 @pytest.mark.parametrize("file_size, is_exception_expected",[

@@ -14,6 +14,8 @@ def validate_file_extension(file_object: UploadedFile):
     if ext.lower() not in VALID_EXTENSIONS:
         raise ValidationError(f"Only PDF and DOC files are accepted. {ext} file detected")
     
+    return ext
+    
     
 
 def validate_file_size(file_object: UploadedFile):

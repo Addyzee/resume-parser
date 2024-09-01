@@ -10,8 +10,6 @@ const csrftoken = document.querySelector('[name=csrf-token]').content;
 
 fileInput.addEventListener('change', () => {
     fileName.textContent = fileInput.files.length > 0 ? fileInput.files[0].name : '';
-    console.log("{% url 'upload-resume' %}");
-
 });
 
 document.getElementById('uploadForm').addEventListener('submit', function(event) {
