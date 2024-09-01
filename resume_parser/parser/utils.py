@@ -10,3 +10,5 @@ def read_uploaded_file(file_object: UploadedFile, file_extension: str):
             
     return text
 
+
+
